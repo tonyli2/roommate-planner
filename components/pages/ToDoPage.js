@@ -42,11 +42,12 @@ function ToDoScreen({navigation}) {
 
         <View style={styles.items}>
           
-          <Tasks content={{text: 'Task 1\t'}} name={{text: 'Hunter'}}/>
-
+          <Tasks content={{text: 'Task 1\t'}} name={{text: 'Hunter'}} onPress={() => navigation.navigate("AssignedScreen")}/>
           {
             taskItems.map((item, index) => {
-                return <Tasks key={index} content={{item}} name={{text:"Unassigned"}}/>
+                
+                return <Tasks key={index} content={{text: item}} name={{text:"Unassigned"}}/>
+                //return <Tasks key={index} content={{text: "Wash Dishes"}} name={{text:"Unassigned"}}/>
             })
           }
         </View>
@@ -127,6 +128,7 @@ const styles = StyleSheet.create({
   items: {
     position: 'relative',
     top: -58,
+    height: 500
   },
   bottomNavigation: {
     flex: 1,

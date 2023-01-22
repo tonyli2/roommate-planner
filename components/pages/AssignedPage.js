@@ -9,8 +9,6 @@ function AssignedScreen({navigation}) {
         <Text style = {styles.sectionTitle}>Assigned Tasks</Text>
         <View style = {styles.items}>
           <Tasks content={{text: 'Task 1\t'}} name={{text: 'Hunter'}}/>
-          <Tasks content={{text: 'Task 2\t'}} name={{text: 'Tony'}}/>
-          <Tasks content={{text: 'Task 3\t'}} name={{text: 'Alex'}}/>
         </View>
       </View>
 

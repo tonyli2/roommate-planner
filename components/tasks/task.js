@@ -1,19 +1,21 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 
-const Tasks = ({content, name}) => {
+const Tasks = ({content, name, onPress}) => {
 
     return (
-        <View style={styles.item}>
-            <View style={styles.itemLeft}>
-                <View style={styles.square}></View>
-                <TextInput style={styles.itemText}placeholder={content.text}></TextInput>
-                <Text style={styles.itemText}>Assignee:</Text>
-                <TextInput style={styles.itemTextAssignee} placeholder={name.text}></TextInput>
-                
+        <TouchableOpacity onPress={onPress}>
+            <View style={styles.item}>
+                <View style={styles.itemLeft}>
+                    <View style={styles.square}></View>
+                    <TextInput style={styles.itemText}placeholder={content.text}></TextInput>
+                    <Text style={styles.itemText}>Assignee:</Text>
+                    <TextInput style={styles.itemTextAssignee} placeholder={name.text}></TextInput>
+                    
+                </View>
+                <View style={styles.circular}></View>
             </View>
-            <View style={styles.circular}></View>
-        </View>
+        </TouchableOpacity>
     )
 }
 
@@ -26,7 +28,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         marginBottom: 20,
-        borderWidth:1
+        borderWidth:1,
+        //height: 
     },
     itemLeft: {
         flexDirection: 'row',

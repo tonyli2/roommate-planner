@@ -7,7 +7,7 @@ const Tasks = ({content, name}) => {
         <View style={styles.item}>
             <View style={styles.itemLeft}>
                 <View style={styles.square}></View>
-                <Text style={styles.itemText}>{content.text}</Text>
+                <TextInput style={styles.itemText}placeholder={content.text}></TextInput>
                 <Text style={styles.itemText}>Assignee:</Text>
                 <TextInput style={styles.itemTextAssignee} placeholder={name.text}></TextInput>
                 

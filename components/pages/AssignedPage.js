@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 function AssignedScreen() {
   return (
     <View style={styles.container}>
     
       <View style = {styles.taskWrapper}>
-        <Text style = {styles.sectionTitle}>Assigned Tasks</Text>
+        <Text style = {styles.sectionTitle}>Assigned Task</Text>
 
         <View style = {styles.items}>
           

@@ -23,7 +23,7 @@ function ToDoScreen({navigation}) {
 
       
       <View style={styles.taskWrapper}>
-        <Text style={styles.sectionTitle}>TO-DO tasks</Text>
+        <Text style={styles.sectionTitle}>To-Do Tasks</Text>
 
         <View style={styles.items}>
           

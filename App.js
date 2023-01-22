@@ -4,6 +4,8 @@ import { createStackNavigator } from '@react-navigation/native';
 import { NavigationContainer } from '@react-navigation/native';
 import AssignedScreen from './components/pages/AssignedPage';
 import ToDoScreen from './components/pages/ToDoPage';
+import FinishedScreen from './components/pages/FinishedPage';
+import HomeScreen from './components/pages/HomePage';
 
 //The variable that creates a stack for the pages
 const stack = createStackNavigator;
@@ -24,6 +26,11 @@ const pageStack = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen 
+          name="HomeScreen"
+          component={HomeScreen}
+          options={{title: 'Home Screen'}}
+        />
+        <Stack.Screen 
           name="ToDoPage"
           component={ToDoScreen}
           options={{title: 'To-Do Tasks'}}
@@ -35,8 +42,8 @@ const pageStack = () => {
         />
         <Stack.Screen 
           name="Finished"
-          component={ToDoScreen}
-          options={{title: 'To-Do Tasks'}}
+          component={FinishedScreen}
+          options={{title: 'Finished Tasks'}}
         />
       </Stack.Navigator>
     </NavigationContainer>

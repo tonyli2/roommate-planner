@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Button, SafeAreaView, Pressable } from 'react-native';
 import Task from '../tasks/task';
 import { useTasks } from '../context.js';
+import { STATUS_enum } from '../util';
 
 function AssignedScreen({navigation}) {
   const {tasks, setTasks} = useTasks();
@@ -11,7 +12,12 @@ function AssignedScreen({navigation}) {
         <Text style = {styles.sectionTitle}>Assigned Tasks</Text>
         <View style = {styles.items}>
           {
-            tasks.map((item, index) => <Task task={item} key={item.id} onPress={() => navigation.navigate("AssignedScreen")}/>)
+            tasks.filter((item) => item.status == STATUS_enum.TODO).map((item, index) => <Task task={item} key={item.id} id={index} onPress={(e) => {
+                console.log(tasks)
+                item.status = STATUS_enum.FINISHED
+                tasks[index] = item
+                setTasks([...tasks])
+            }}/>)
           }
         </View>
       </View>

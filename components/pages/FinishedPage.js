@@ -2,9 +2,12 @@ import React from 'react';
 import { View, Text, StyleSheet, Button, SafeAreaView, Pressable } from 'react-native';
 import Task from '../tasks/task';
 import { useTasks } from '../context.js';
+import { useDoneTasks } from '../finishedContext';
+import { STATUS_enum } from '../util';
 
 function FinishedScreen({navigation}) {
   const {tasks, setTasks} = useTasks();
+  const {doneTasks, setDoneTasks} = useDoneTasks();
   return (
 
     <View style={styles.container}>
@@ -12,7 +15,7 @@ function FinishedScreen({navigation}) {
         <Text style = {styles.sectionTitle}>Finished Tasks</Text>
         <View style = {styles.items}>
           {
-            tasks.map((item, index) => <Task task={item} key={item.id} onPress={() => navigation.navigate("AssignedScreen")}/>)
+            tasks.filter((item) => item.status == STATUS_enum.FINISHED).map((item, index) => <Task task={item} key={item.id} onPress={() => navigation.navigate("AssignedScreen")}/>)
           }
         </View>
       </View>
@@ -32,6 +35,10 @@ function FinishedScreen({navigation}) {
       </SafeAreaView>
     </View>
   );
+}
+
+const finishedTask = () => {
+
 }
 
 const styles = StyleSheet.create({

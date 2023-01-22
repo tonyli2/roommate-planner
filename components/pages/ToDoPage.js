@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, Button, SafeAreaView,
 import Task from '../tasks/task';
 import { useTasks } from '../context.js';
 import { customAlphabet } from 'nanoid/non-secure'; 
+import { STATUS_enum } from '../util';
 const nanoid = customAlphabet('abcdefghijklmnopqrstuvwxyz0123456789', 10); 
 
 function ToDoScreen({navigation}) {
@@ -16,7 +17,8 @@ function ToDoScreen({navigation}) {
     const newTask = {
       taskId: nanoid(),
       content: taskInput,
-      name: "Unassigned"
+      name: "Unassigned",
+      status: STATUS_enum.TODO
     }
     setTasks(tasks => [...tasks, newTask]) 
     setTaskInput("");
@@ -48,7 +50,7 @@ function ToDoScreen({navigation}) {
 
         <View style={styles.items}>
           {
-            tasks.map((item) => <Task task={item} key={item.taskId} onPress={() => navigation.navigate("AssignedScreen")}/>)
+            tasks.filter((item) => item.status == STATUS_enum.TODO).map((item) => <Task task={item} key={item.taskId} onPress={() => navigation.navigate("AssignedScreen")}/>)
           }
         </View>
       </View>

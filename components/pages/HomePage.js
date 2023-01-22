@@ -1,11 +1,32 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
-function HomeScreen() {
+export default function HomeScreen({navigation}) {
   return (
-    <View>
-      <Text>This is the Home screen</Text>
+    <View style={styles.container}>
+        <Text>This is the Home Screen</Text>
+        <Button 
+            title="To Do Tasks"
+            onPress={() => navigation.navigate("ToDoPage")}
+        />
+        <Button 
+            title="Assigned Tasks"
+            onPress={() => navigation.navigate("AssignedScreen")}
+        />
+        <Button 
+            title="Finished Tasks"
+            onPress={() => navigation.navigate("FinishedScreen")}
+        />
+        <StatusBar style="auto"/>
     </View>
   );
 }
-export default HomeScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});

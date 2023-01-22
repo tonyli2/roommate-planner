@@ -1,15 +1,20 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
 
-function AssignedScreen() {
+function AssignedScreen({navigation}) {
   return (
     <View style={styles.container}>
-    
       <View style = {styles.taskWrapper}>
         <Text style = {styles.sectionTitle}>Assigned Task</Text>
-
         <View style = {styles.items}>
-          
+          <Button 
+              title="To Do Tasks"
+              onPress={() => navigation.navigate("ToDoPage")}
+          />
+          <Button 
+            title="Finished Tasks"
+            onPress={() => navigation.navigate("FinishedScreen")}
+          />
         </View>
       </View>
     </View>

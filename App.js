@@ -1,28 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { createStackNavigator } from '@react-navigation/native';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AssignedScreen from './components/pages/AssignedPage';
 import ToDoScreen from './components/pages/ToDoPage';
 import FinishedScreen from './components/pages/FinishedPage';
 import HomeScreen from './components/pages/HomePage';
 
 //The variable that creates a stack for the pages
-const stack = createStackNavigator;
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <View style={styles.container}>
-        <Text>New changes</Text>
-        <StatusBar style="auto" />
-      </View>
-    </NavigationContainer>
-  );
-}
-
-const pageStack = () => {
-  return(
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen 
@@ -41,7 +28,7 @@ const pageStack = () => {
           options={{title: 'Assigned Tasks'}}
         />
         <Stack.Screen 
-          name="Finished"
+          name="FinishedScreen"
           component={FinishedScreen}
           options={{title: 'Finished Tasks'}}
         />
@@ -49,12 +36,3 @@ const pageStack = () => {
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

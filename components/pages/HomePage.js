@@ -1,17 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
-import { View, Text, StyleSheet, Button, SafeAreaView, Pressable } from 'react-native';
+import { View, Text, StyleSheet, Image, SafeAreaView, Pressable, Platform } from 'react-native';
 import { useState } from 'react';
 
 export default function HomeScreen({navigation}) {
   const [pressed, setPressed] = useState(false);
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
 
-      <View style={styles.taskWrapper}>
+      <SafeAreaView style={styles.logoContainer}>
+        <Image 
+        style={styles.logo}
+        source={require('../../assets/logo.png')}/>
+      </SafeAreaView>
+
+     <SafeAreaView style={styles.taskWrapper}>
         <Text style={styles.sectionTitle}>App Title</Text>
         <Text style={styles.subTitle}>Organize Your Roommates</Text>
-      </View>
+      </SafeAreaView>
 
       <SafeAreaView style={styles.Menu}>
 
@@ -32,10 +38,10 @@ export default function HomeScreen({navigation}) {
         onPress={() => navigation.navigate("FinishedScreen")}>
           <Text style={styles.text}>Finished Tasks</Text>
         </Pressable>
-      </SafeAreaView>
+      </SafeAreaView> 
       
       
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -46,7 +52,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  logoContainer:{
+    flex: 3,
+    marginBottom: 20
+  },
+  logo:{
+    marginTop: 50,
+    width: 180,
+    height: 180
+
+  },
   taskWrapper: {
+    flex: 6,
     paddingTop: 75,
     paddingHorizontal: 30,
   },
@@ -67,8 +84,11 @@ const styles = StyleSheet.create({
   },
 
   Menu: {
-    flex: 1,
-    flexDirection: 'column-reverse'
+    flex: 10,
+    justifyContent: 'space-between',
+    marginTop: 80,
+    marginBottom: 100
+    // flexDirection: 'column-reverse'
   },
   ToDoButton: {
     position: 'relative',
@@ -82,7 +102,8 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderWidth: 2,
     borderColor: '#856C99',
-    top: 350,
+    marginBottom: 5
+    // top: 250
 
   },
 
@@ -98,7 +119,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderWidth: 2,
     borderColor: '#856C99',
-    top: 180,
+    // top: 80,
   },
 
   FinishedButton: {
@@ -113,7 +134,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderWidth: 2,
     borderColor: '#856C99',
-    top: 7.2,
+    // top: 2,
   },
 
   text: {

@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-function ToDoScreen() {
+function AssignedScreen() {
   return (
     <View>
-      <Text>This is the TODO screen</Text>
+      <Text>This is the Assigned screen</Text>
     </View>
   );
 }
-export default MyScreen;
+export default AssignedScreen;

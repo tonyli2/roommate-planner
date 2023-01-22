@@ -15,8 +15,8 @@ export default function HomeScreen({navigation}) {
       </SafeAreaView>
 
      <SafeAreaView style={styles.taskWrapper}>
-        <Text style={styles.sectionTitle}>App Title</Text>
-        <Text style={styles.subTitle}>Organize Your Roommates</Text>
+        <Text style={styles.sectionTitle}>Intelliphant</Text>
+        <Text style={styles.subTitle}>So a roommate never forgets</Text>
       </SafeAreaView>
 
       <SafeAreaView style={styles.Menu}>

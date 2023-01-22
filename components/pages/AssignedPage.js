@@ -11,7 +11,7 @@ function AssignedScreen({navigation}) {
         <Text style = {styles.sectionTitle}>Assigned Tasks</Text>
         <View style = {styles.items}>
           {
-            tasks.map((item, index) => <Task task={item} key={item.id} onPress={() => navigation.navigate("AssignedScreen")}/>)
+            tasks.map((item, index) => <Task task={item} key={item.id} onPress={() => navigation.navigate("FinishedScreen")}/>)
           }
         </View>
       </View>

@@ -3,6 +3,24 @@ import { View, Text, StyleSheet, Button, SafeAreaView, Pressable } from 'react-n
 import Tasks from '../tasks/task';
 
 function ToDoScreen({navigation}) {
+
+  //A Component which is a button which once pressed will create a new task
+  const TaskAdder = () => {
+
+    const [tasks, setTasks] = useState([]);
+
+    const handleAddTask = () => {
+        //setTasks([...tasks, ]);
+    };
+
+    return (
+        <View>
+            <Button title="Add Task" onPress={handleAddTask} />
+            {tasks}
+        </View>
+    );
+  };
+
   return (
     <View style={styles.container}>
 

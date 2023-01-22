@@ -9,13 +9,14 @@ import HomeScreen from './components/pages/HomePage';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen 
           name="HomeScreen"
           component={HomeScreen}
-          options={{title: ''}}
+          options={{title: 'Home Screen'}}
         />
         <Stack.Screen 
           name="ToDoPage"

@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     position: 'relative',
     right: -240,
-    top: -43,
+    top: -45,
 
   },
   text: {

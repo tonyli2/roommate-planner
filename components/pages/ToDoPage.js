@@ -9,7 +9,7 @@ function ToDoScreen({navigation}) {
 
       {/* Main module starts */}
       <View style={styles.taskWrapper}>
-        <Text style={styles.sectionTitle}>TO-DO tasks</Text>
+        <Text style={styles.sectionTitle}>To-Do Tasks</Text>
 
         <View style={styles.items}>
           {/* Add tasks here */}
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     position: 'relative',
     right: -240,
-    top: -43,
+    top: -45,
 
   },
   text: {

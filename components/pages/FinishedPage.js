@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     backgroundColor: '#FCF9FF',
     borderRadius: 10,
+    borderWidth: 1,
     right: -50
   },
   buttonRight: {
@@ -76,6 +77,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     backgroundColor: '#FCF9FF',
     borderRadius: 10,
+    borderWidth: 1,
     position: 'relative',
     right: -240,
     top: -45,

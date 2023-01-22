@@ -1,23 +1,38 @@
-import React from 'react';
-import { View, Text, StyleSheet, Button, SafeAreaView, Pressable, KeyboardAvoidingView, Platform, TextInput, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, Button, SafeAreaView, 
+  Pressable, KeyboardAvoidingView, KeyboardAwareView, Platform, TextInput, TouchableOpacity, Keyboard } from 'react-native';
 import Tasks from '../tasks/task';
 
 function ToDoScreen({navigation}) {
 
+  const [tasks, setTasks] = useState();
+  const [taskItems, setTaskItems] = useState([]);
+
+  const addTask = () => {
+    Keyboard.dismiss();
+    setTaskItems([...taskItems, tasks]) 
+    //Basically update list of tasks with most recent
+    setTasks(null);
+  }
+
   return (
     <View style={styles.container}>
+
+    <KeyboardAvoidingView keyboardVerticalOffset={100}>
+      <TextInput style={styles.input} placeholder={'Enter Task'} value={tasks} onChangeText={text => setTasks(text)}/>
+
+        <TouchableOpacity onPress={() => addTask()}>
+          <View style={styles.addWrapper}>
+            <Text style={styles.addText}>Add</Text>
+          </View>
+        </TouchableOpacity>
+    </KeyboardAvoidingView>
 
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.writeTaskWrapper}
       >
-        {/*<TextInput style={styles.input} placeholder={'Add a Task'} />*/}
-
-        <TouchableOpacity >
-          <View style={styles.addWrapper}>
-            <Text style={styles.addText}>Add</Text>
-          </View>
-        </TouchableOpacity>
+        
         
       </KeyboardAvoidingView>
 
@@ -28,9 +43,12 @@ function ToDoScreen({navigation}) {
         <View style={styles.items}>
           
           <Tasks content={{text: 'Task 1\t'}} name={{text: 'Hunter'}}/>
-          <Tasks content={{text: 'Task 2\t'}} name={{text: 'Tony'}}/>
-          <Tasks content={{text: 'Task 3\t'}} name={{text: 'Alex'}}/>
-          <Tasks content={{text: 'Task 4\t'}} name={{text: 'Carissa'}}/>
+
+          {
+            taskItems.map((item, index) => {
+                return <Tasks key={index} content={{item}} name={{text:"Unassigned"}}/>
+            })
+          }
         </View>
       </View>
 
@@ -73,21 +91,25 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
     borderRadius: 60,
     borderWidth: 1,
-    width: 250,
+    borderColor: '#000000',
+    width: 200,
+    position: 'relative',
+    left: 30,
+    top: 10
+    
   },
   addWrapper: {
     width: 60,
     height: 60,
-    backgroundColor: '#AAA',
+    backgroundColor: '#FFF',
     borderRadius: 60,
     justifyContent: 'center',
     alignItems: 'center',
     borderColor: 'C0C0C0',
     borderWidth: 1,
     position: "relative",
-    top: -620,
-    left: -125
-
+    top: -45,
+    left: 250
   },
   addText: {},
 
@@ -99,10 +121,12 @@ const styles = StyleSheet.create({
     fontSize: '35',
     fontWeight: 'bold',
     textAlign: 'right',
+    position: 'relative',
+    top: -109,
   },
   items: {
     position: 'relative',
-    top: 50,
+    top: -58,
   },
   bottomNavigation: {
     flex: 1,
@@ -116,6 +140,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     backgroundColor: '#FCF9FF',
     borderRadius: 10,
+    borderWidth: 1,
     right: -50
   },
   buttonRight: {
@@ -126,6 +151,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     backgroundColor: '#FCF9FF',
     borderRadius: 10,
+    borderWidth: 1,
     position: 'relative',
     right: -240,
     top: -45,

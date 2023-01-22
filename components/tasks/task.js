@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 
 const Tasks = ({content, name}) => {
 
@@ -8,7 +8,9 @@ const Tasks = ({content, name}) => {
             <View style={styles.itemLeft}>
                 <View style={styles.square}></View>
                 <Text style={styles.itemText}>{content.text}</Text>
-                <Text style={styles.itemText}>Assignee: {name.text}</Text>
+                <Text style={styles.itemText}>Assignee:</Text>
+                <TextInput style={styles.itemTextAssignee} placeholder={name.text}></TextInput>
+                
             </View>
             <View style={styles.circular}></View>
         </View>
@@ -40,6 +42,15 @@ const styles = StyleSheet.create({
     },
     itemText: {
         maxWidth: '80%',
+    },
+    itemTextAssign: {
+        paddingVertical: 15,
+        paddingHorizontal: 15,
+        backgroundColor: '#AAA',
+        borderRadius: 60,
+        borderColor: '#C0C0C0',
+        borderWidth: 1,
+        width: 150,
     },
     circular: {
         width: 12,

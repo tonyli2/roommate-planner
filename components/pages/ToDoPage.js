@@ -11,11 +11,11 @@ function ToDoScreen({navigation}) {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.writeTaskWrapper}
       >
-        <TextInput style={styles.input} placeholder={'Add a Task'} />
+        {/*<TextInput style={styles.input} placeholder={'Add a Task'} />*/}
 
         <TouchableOpacity >
           <View style={styles.addWrapper}>
-            <Text style={styles.addText}></Text>
+            <Text style={styles.addText}>Add</Text>
           </View>
         </TouchableOpacity>
         
@@ -23,7 +23,7 @@ function ToDoScreen({navigation}) {
 
       
       <View style={styles.taskWrapper}>
-        <Text style={styles.sectionTitle}>TO-DO tasks</Text>
+        <Text style={styles.sectionTitle}>To-Do Tasks</Text>
 
         <View style={styles.items}>
           
@@ -84,6 +84,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderColor: 'C0C0C0',
     borderWidth: 1,
+    position: "relative",
+    top: -620,
+    left: -125
+
   },
   addText: {},
 

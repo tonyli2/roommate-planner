@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, Button, SafeAreaView, 
   Pressable, KeyboardAvoidingView, Platform, TextInput, TouchableOpacity, Keyboard } from 'react-native';
 import Tasks from '../tasks/task';
+import { useTasks } from '../context.js';
 
 function ToDoScreen({navigation}) {
 
-  const [tasks, setTasks] = useState();
+  const {tasks, setTasks} = useTasks();
   const [taskItems, setTaskItems] = useState([]);
 
   const addTask = () => {
@@ -42,7 +43,6 @@ function ToDoScreen({navigation}) {
 
         <View style={styles.items}>
           
-          <Tasks content={{text: 'Task 1\t'}} name={{text: 'Hunter'}} onPress={() => navigation.navigate("AssignedScreen")}/>
           {
             taskItems.map((item, index) => {
                 

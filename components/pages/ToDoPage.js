@@ -1,27 +1,32 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Button, SafeAreaView, 
   Pressable, KeyboardAvoidingView, Platform, TextInput, TouchableOpacity, Keyboard } from 'react-native';
-import Tasks from '../tasks/task';
+import Task from '../tasks/task';
 import { useTasks } from '../context.js';
+import { customAlphabet } from 'nanoid/non-secure'; 
+const nanoid = customAlphabet('abcdefghijklmnopqrstuvwxyz0123456789', 10); 
 
 function ToDoScreen({navigation}) {
 
   const {tasks, setTasks} = useTasks();
-  const [taskItems, setTaskItems] = useState([]);
+  const [taskInput, setTaskInput] = useState("");
 
   const addTask = () => {
     Keyboard.dismiss();
-    setTaskItems([...taskItems, tasks]) 
-    //Basically update list of tasks with most recent
-    setTasks(null);
+    const newTask = {
+      taskId: nanoid(),
+      content: taskInput,
+      name: "Unassigned"
+    }
+    setTasks(tasks => [...tasks, newTask]) 
+    setTaskInput("");
   }
 
   return (
     <View style={styles.container}>
 
     <KeyboardAvoidingView keyboardVerticalOffset={100}>
-      <TextInput style={styles.input} placeholder={'Enter Task'} value={tasks} onChangeText={text => setTasks(text)}/>
-
+      <TextInput style={styles.input} placeholder={'Enter Task'} value={taskInput} onChangeText={text => setTaskInput(text)}/>
         <TouchableOpacity onPress={() => addTask()}>
           <View style={styles.addWrapper}>
             <Text style={styles.addText}>Add</Text>
@@ -42,13 +47,8 @@ function ToDoScreen({navigation}) {
         <Text style={styles.sectionTitle}>To-Do Tasks</Text>
 
         <View style={styles.items}>
-          
           {
-            taskItems.map((item, index) => {
-                
-                return <Tasks key={index} content={{text: item}} name={{text:"Unassigned"}} onPress={() => navigation.navigate("AssignedScreen")}/>
-                //return <Tasks key={index} content={{text: "Wash Dishes"}} name={{text:"Unassigned"}}/>
-            })
+            tasks.map((item) => <Task task={item} key={item.taskId} onPress={() => navigation.navigate("AssignedScreen")}/>)
           }
         </View>
       </View>

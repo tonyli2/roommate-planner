@@ -1,15 +1,19 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button, SafeAreaView, Pressable } from 'react-native';
-import Tasks from '../tasks/task';
+import Task from '../tasks/task';
+import { useTasks } from '../context.js';
 
 function FinishedScreen({navigation}) {
+  const {tasks, setTasks} = useTasks();
   return (
 
     <View style={styles.container}>
       <View style = {styles.taskWrapper}>
         <Text style = {styles.sectionTitle}>Finished Tasks</Text>
         <View style = {styles.items}>
-          <Tasks content={{text: 'Task 1\t'}} name={{text: 'Hunter'}}/>
+          {
+            tasks.map((item, index) => <Task task={item} key={item.id} onPress={() => navigation.navigate("AssignedScreen")}/>)
+          }
         </View>
       </View>
 

@@ -1,16 +1,40 @@
 import React from "react";
+import { useTasks } from '../context.js';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 
-const Tasks = ({content, name, onPress}) => {
+const Task = ({task, onPress}) => {
+    const {tasks, setTasks} = useTasks();
+    console.log(task)
+    const {taskId, name, content} = task;
+
+    const editTaskText = (newTaskText) => {
+        const newTasks = tasks.map((t) => {
+            if (t.taskId === taskId) {
+                t.content = newTaskText
+            }
+            return t
+        })
+        setTasks(newTasks)
+    }
+
+    const editTaskName = (newTaskName) => {
+        const newTasks = tasks.map((t) => {
+            if (t.taskId === taskId) {
+                t.name = newTaskName
+            }
+            return t
+        })
+        setTasks(newTasks)
+    }
 
     return (
         <TouchableOpacity onPress={onPress}>
             <View style={styles.item}>
                 <View style={styles.itemLeft}>
                     <View style={styles.square}></View>
-                    <TextInput style={styles.itemText}placeholder={content.text}></TextInput>
+                    <TextInput style={styles.itemText} value={content} onChangeText={text => editTaskText(text)}></TextInput>
                     <Text style={styles.itemText}>Assignee:</Text>
-                    <TextInput style={styles.itemTextAssignee} placeholder={name.text}></TextInput>
+                    <TextInput style={styles.itemTextAssignee} value={name} onChangeText={text => editTaskName(text)}></TextInput>
                     
                 </View>
                 <View style={styles.circular}></View>
@@ -65,4 +89,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Tasks;
+export default Task;

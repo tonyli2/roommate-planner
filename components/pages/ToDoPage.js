@@ -5,7 +5,6 @@ import Tasks from '../tasks/task';
 function ToDoScreen({navigation}) {
   return (
     <View style={styles.container}>
-      <Text>This is the TODO screen</Text>
 
       {/* Main module starts */}
       <View style={styles.taskWrapper}>
@@ -13,8 +12,8 @@ function ToDoScreen({navigation}) {
 
         <View style={styles.items}>
           {/* Add tasks here */}
-          <Tasks text={'Task 1'}/>
-          <Tasks text={'Task 2'}/>
+          <Tasks content={{text: 'Task 1\t'}} name={{text: 'Hunter'}}/>
+          <Tasks content={{text: 'Task 2\t'}} name={{text: 'Tony'}}/>
         </View>
       </View>
 
@@ -33,7 +32,7 @@ function ToDoScreen({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#A686BF',
+    backgroundColor: '#E2CBF4',
   },
   taskWrapper: {
     paddingTop: 20,

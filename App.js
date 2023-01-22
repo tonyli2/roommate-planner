@@ -1,38 +1,43 @@
 import { StatusBar } from 'expo-status-bar';
-import { React } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { createStackNavigator } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
+
+//The variable that creates a stack for the pages
+const stack = createStackNavigator;
 
 export default function App() {
   return (
-    <View style={styles.container}>
-    
-      <View style = {styles.taskWrapper}>
-        <Text style = {styles.sectionTitle}>Assigned Tasks</Text>
-
-        <View style = {styles.items}>
-          
-        </View>
+    <NavigationContainer>
+      <View style={styles.container}>
+        <Text>New changes</Text>
+        <StatusBar style="auto" />
       </View>
-    </View>
+    </NavigationContainer>
   );
+}
+
+const pageStack = () => {
+  return(
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{title: 'Welcome'}}
+        />
+        <Stack.Screen name="Profile" component={ProfileScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-
-  taskWrapper: {
-    paddingTop: 75,
-    paddingHorizontal: 30,
-
-  },
-  sectionTitle: {
-    fontSize: 35,
-    fontWeight: 'bold',
-    textAlign: 'right',
-  },
-  items: {},
 });

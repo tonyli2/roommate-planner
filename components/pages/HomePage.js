@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { View, Text, StyleSheet, Button, SafeAreaView, Pressable } from 'react-native';
 
 export default function HomeScreen({navigation}) {
   return (

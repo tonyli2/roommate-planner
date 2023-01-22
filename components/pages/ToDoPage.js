@@ -9,12 +9,14 @@ function ToDoScreen({navigation}) {
 
       {/* Main module starts */}
       <View style={styles.taskWrapper}>
-        <Text style={styles.sectionTitle}>TODO tasks</Text>
+        <Text style={styles.sectionTitle}>TO-DO tasks</Text>
 
         <View style={styles.items}>
           {/* Add tasks here */}
           <Tasks content={{text: 'Task 1\t'}} name={{text: 'Hunter'}}/>
           <Tasks content={{text: 'Task 2\t'}} name={{text: 'Tony'}}/>
+          <Tasks content={{text: 'Task 3\t'}} name={{text: 'Alex'}}/>
+          <Tasks content={{text: 'Task 4\t'}} name={{text: 'Carissa'}}/>
         </View>
       </View>
 
@@ -44,19 +46,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#E2CBF4',
   },
   taskWrapper: {
-    paddingTop: 20,
-    paddingHorizontal: 20,
+    paddingTop: 75,
+    paddingHorizontal: 30,
   },
   sectionTitle: {
-    fontSize: '24',
+    fontSize: '35',
     fontWeight: 'bold',
+    textAlign: 'right',
   },
   items: {
     position: 'relative',
     top: 50,
-    
-    
-
   },
   bottomNavigation: {
     flex: 1,
@@ -69,7 +69,8 @@ const styles = StyleSheet.create({
     width: '30%',
     borderRadius: 4,
     backgroundColor: '#FCF9FF',
-    borderRadius: 10
+    borderRadius: 10,
+    right: -50
   },
   buttonRight: {
     alignItems: 'center',
@@ -79,9 +80,9 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     backgroundColor: '#FCF9FF',
     borderRadius: 10,
-    position: 'absolute',
-    right: 0,
-    top: 529
+    position: 'relative',
+    right: -240,
+    top: -43,
 
   },
   text: {

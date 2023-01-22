@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button, SafeAreaView, Pressable } from 'react-native';
-
+import Tasks from '../tasks/task';
 
 function FinishedScreen({navigation}) {
   return (
@@ -9,7 +9,9 @@ function FinishedScreen({navigation}) {
       <View style = {styles.taskWrapper}>
         <Text style = {styles.sectionTitle}>Finished Tasks</Text>
         <View style = {styles.items}>
-          {/*  Tasks here!  */ }
+          <Tasks content={{text: 'Task 1\t'}} name={{text: 'Hunter'}}/>
+          <Tasks content={{text: 'Task 2\t'}} name={{text: 'Tony'}}/>
+          <Tasks content={{text: 'Task 3\t'}} name={{text: 'Alex'}}/>
         </View>
       </View>
 
@@ -35,6 +37,18 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#E2CBF4',
   },
+  taskWrapper: {
+    paddingTop: 75,
+    paddingHorizontal: 30,
+  },
+  sectionTitle: {
+    fontSize: '24',
+    fontWeight: 'bold',
+  },
+  items: {
+    position: 'relative',
+    top: 50,
+  },
   sectionTitle: {
     fontSize: 35,
     fontWeight: 'bold',
@@ -51,7 +65,8 @@ const styles = StyleSheet.create({
     width: '30%',
     borderRadius: 4,
     backgroundColor: '#FCF9FF',
-    borderRadius: 10
+    borderRadius: 10,
+    right: -50
   },
   buttonRight: {
     alignItems: 'center',
@@ -61,9 +76,9 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     backgroundColor: '#FCF9FF',
     borderRadius: 10,
-    position: 'absolute',
-    right: 0,
-    top: 608
+    position: 'relative',
+    right: -240,
+    top: -43,
 
   },
   text: {

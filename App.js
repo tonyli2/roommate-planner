@@ -15,22 +15,22 @@ export default function App() {
         <Stack.Screen 
           name="HomeScreen"
           component={HomeScreen}
-          options={{title: 'Home Screen'}}
+          options={{title: ''}}
         />
         <Stack.Screen 
           name="ToDoPage"
           component={ToDoScreen}
-          options={{title: 'To-Do Tasks'}}
+          options={{title: ''}}
         />
         <Stack.Screen
           name="AssignedScreen"
           component={AssignedScreen}
-          options={{title: 'Assigned Tasks'}}
+          options={{title: ''}}
         />
         <Stack.Screen 
           name="FinishedScreen"
           component={FinishedScreen}
-          options={{title: 'Finished Tasks'}}
+          options={{title: ''}}
         />
       </Stack.Navigator>
     </NavigationContainer>

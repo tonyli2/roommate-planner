@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button, SafeAreaView, Pressable } from 'react-native';
+import Tasks from '../tasks/task';
 
 function AssignedScreen({navigation}) {
   return (
@@ -7,7 +8,9 @@ function AssignedScreen({navigation}) {
       <View style = {styles.taskWrapper}>
         <Text style = {styles.sectionTitle}>Assigned Tasks</Text>
         <View style = {styles.items}>
-          {/*  Tasks here!  */ }
+          <Tasks content={{text: 'Task 1\t'}} name={{text: 'Hunter'}}/>
+          <Tasks content={{text: 'Task 2\t'}} name={{text: 'Tony'}}/>
+          <Tasks content={{text: 'Task 3\t'}} name={{text: 'Alex'}}/>
         </View>
       </View>
 
@@ -44,7 +47,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'right',
   },
-  items: {},
+  items: {
+    position: 'relative',
+    top: 50,
+  },
 
   bottomNavigation: {
     flex: 1,
@@ -57,7 +63,8 @@ const styles = StyleSheet.create({
     width: '30%',
     borderRadius: 4,
     backgroundColor: '#FCF9FF',
-    borderRadius: 10
+    borderRadius: 10,
+    right: -50
   },
   buttonRight: {
     alignItems: 'center',
@@ -67,10 +74,9 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     backgroundColor: '#FCF9FF',
     borderRadius: 10,
-    position: 'absolute',
-    right: 0,
-    top: 529
-
+    position: 'relative',
+    right: -240,
+    top: -43,
   },
   text: {
     fontSize: 16,

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Button, SafeAreaView, 
-  Pressable, KeyboardAvoidingView, KeyboardAwareView, Platform, TextInput, TouchableOpacity, Keyboard } from 'react-native';
+  Pressable, KeyboardAvoidingView, Platform, TextInput, TouchableOpacity, Keyboard } from 'react-native';
 import Tasks from '../tasks/task';
 
 function ToDoScreen({navigation}) {
@@ -46,7 +46,7 @@ function ToDoScreen({navigation}) {
           {
             taskItems.map((item, index) => {
                 
-                return <Tasks key={index} content={{text: item}} name={{text:"Unassigned"}}/>
+                return <Tasks key={index} content={{text: item}} name={{text:"Unassigned"}} onPress={() => navigation.navigate("AssignedScreen")}/>
                 //return <Tasks key={index} content={{text: "Wash Dishes"}} name={{text:"Unassigned"}}/>
             })
           }
@@ -128,7 +128,6 @@ const styles = StyleSheet.create({
   items: {
     position: 'relative',
     top: -58,
-    height: 500
   },
   bottomNavigation: {
     flex: 1,

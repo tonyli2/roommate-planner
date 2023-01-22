@@ -3,9 +3,36 @@ import { View, Text } from 'react-native';
 
 function AssignedScreen() {
   return (
-    <View>
-      <Text>This is the TODO screen</Text>
+    <View style={styles.container}>
+    
+      <View style = {styles.taskWrapper}>
+        <Text style = {styles.sectionTitle}>Assigned Tasks</Text>
+
+        <View style = {styles.items}>
+          
+        </View>
+      </View>
     </View>
   );
 }
-export default MyScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+
+  taskWrapper: {
+    paddingTop: 75,
+    paddingHorizontal: 30,
+
+  },
+  sectionTitle: {
+    fontSize: 35,
+    fontWeight: 'bold',
+    textAlign: 'right',
+  },
+  items: {},
+});
+
+export default AssignedScreen;

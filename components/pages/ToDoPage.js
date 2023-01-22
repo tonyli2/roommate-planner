@@ -4,23 +4,6 @@ import Tasks from '../tasks/task';
 
 function ToDoScreen({navigation}) {
 
-  //A Component which is a button which once pressed will create a new task
-  const TaskAdder = () => {
-
-    const [tasks, setTasks] = useState([]);
-
-    const handleAddTask = () => {
-        //setTasks([...tasks, ]);
-    };
-
-    return (
-        <View>
-            <Button title="Add Task" onPress={handleAddTask} />
-            {tasks}
-        </View>
-    );
-  };
-
   return (
     <View style={styles.container}>
 
@@ -40,13 +23,13 @@ function ToDoScreen({navigation}) {
       
       <SafeAreaView style={styles.bottomNavigation}>
         <Pressable 
-        style={styles.button} 
+        style={styles.buttonLeft} 
         onPress={() => navigation.navigate("AssignedScreen")}>
           <Text style={styles.text}>Assigned Tasks</Text>
         </Pressable>
         
         <Pressable 
-        style={styles.button} 
+        style={styles.buttonRight} 
         onPress={() => navigation.navigate("FinishedScreen")}>
           <Text style={styles.text}>Finished Tasks</Text>
         </Pressable>
@@ -79,14 +62,27 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column-reverse'
   },
-  button: {
+  buttonLeft: {
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 12,
-    width: '50%',
+    width: '30%',
     borderRadius: 4,
-    backgroundColor: '#BCBCBC',
+    backgroundColor: '#FCF9FF',
     borderRadius: 10
+  },
+  buttonRight: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 12,
+    width: '30%',
+    borderRadius: 4,
+    backgroundColor: '#FCF9FF',
+    borderRadius: 10,
+    position: 'absolute',
+    right: 0,
+    top: 529
+
   },
   text: {
     fontSize: 16,

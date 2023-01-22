@@ -43,6 +43,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   items: {
+    position: 'relative',
+    top: 50,
+    
+    
 
   },
 });
